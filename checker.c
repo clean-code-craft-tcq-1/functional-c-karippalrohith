@@ -47,7 +47,6 @@ bool checkTemperature_OutOfRange(float temperature)
 	bool retTempStatus = false;
 	if(temperature < 0 || temperature > 45) 
 	{
-		//printf("Temperature out of range!\n");
 		printParameterStatus("Temperature");
 		retTempStatus = true;
 		setBMSStatus(true);
@@ -60,7 +59,7 @@ bool checkSOC_OutOfRange(float soc)
 {
 	bool retSOC_Status = false;
 	if(soc < 20 || soc > 80) {
-		printf("State of Charge out of range!\n");
+		printParameterStatus("State of Charge");
 		retSOC_Status = true;
 		setBMSStatus(true);
 	}	
@@ -71,7 +70,7 @@ bool checkChargeRate_OutOfRange(float chargeRate)
 {
 	bool retCanregeRate_Status = false;
 	if(chargeRate > 0.8) {
-		printf("Charge Rate out of range!\n");
+		printParameterStatus("Charge Rate");
 		retCanregeRate_Status = true;
 		setBMSStatus(true);
 	}		
