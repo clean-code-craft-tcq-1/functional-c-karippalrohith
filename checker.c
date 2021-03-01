@@ -19,7 +19,7 @@
 #include <assert.h>
 
 /*------ module includes --------*/
-#include "checker.h"
+#include "Checker.h"
 
 /*=============================================================================
  =======               DEFINES & MACROS FOR GENERAL PURPOSE              =======
@@ -33,9 +33,9 @@
  =======                VARIABLES & MESSAGES & RESSOURCEN                =======
  ==============================================================================*/
 BMS_parameters_s BMS_parameters_attributes = {
-		FALSE,
-		FALSE,
-		FALSE
+		false,
+		false,
+		false
 };
 /*=============================================================================
  =======                              METHODS                            =======
@@ -43,11 +43,11 @@ BMS_parameters_s BMS_parameters_attributes = {
  
 bool checkTemperature_OutOfRange(float temperature)
 {
-	bool retTempStatus = FALSE;
+	bool retTempStatus = false;
 	if(temperature < 0 || temperature > 45) 
 	{
 		printf("Temperature out of range!\n");
-		retTempStatus = TRUE;
+		retTempStatus = true;
 	}	
 	
 	return retTempStatus;
@@ -55,20 +55,20 @@ bool checkTemperature_OutOfRange(float temperature)
 
 bool checkSOC_OutOfRange(float soc)
 {
-	bool retSOC_Status = FALSE;
+	bool retSOC_Status = false;
 	if(soc < 20 || soc > 80) {
 		printf("State of Charge out of range!\n");
-		retSOC_Status = TRUE;
+		retSOC_Status = true;
 	}	
 	return retSOC_Status;
 }
 
 bool checkChargeRate_OutOfRange(float chargeRate)
 {
-	bool retCanregeRate_Status = FALSE;
+	bool retCanregeRate_Status = false;
 	if(chargeRate > 0.8) {
 		printf("Charge Rate out of range!\n");
-		retCanregeRate_Status = TRUE;
+		retCanregeRate_Status = true;
 	}		
 	return retCanregeRate_Status;
 }
@@ -89,7 +89,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 	BMS_parameters_attributes.soc_Status_b = checkSOC_OutOfRange(soc);
 	BMS_parameters_attributes.chargeRate_Status_b = checkChargeRate_OutOfRange(chargeRate);
 	
-	if((TRUE == BMS_parameters_attributes.temp_Status_b) || (TRUE == BMS_parameters_attributes.soc_Status_b) || (TRUE == BMS_parameters_attributes.chargeRate_Status_b)) 
+	if((true == BMS_parameters_attributes.temp_Status_b) || (true == BMS_parameters_attributes.soc_Status_b) || (true == BMS_parameters_attributes.chargeRate_Status_b)) 
 	{
 		return 0;
 	}
