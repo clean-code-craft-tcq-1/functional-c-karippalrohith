@@ -32,7 +32,7 @@
 /*=============================================================================
  =======                VARIABLES & MESSAGES & RESSOURCEN                =======
  ==============================================================================*/
-BMS_parameters_s BMS_parameters_attributes = {
+static BMS_parameters_s BMS_parameters_attributes = {
 		false,
 		false,
 		false,
@@ -49,6 +49,7 @@ bool checkTemperature_OutOfRange(float temperature)
 	{
 		printf("Temperature out of range!\n");
 		retTempStatus = true;
+		BMS_parameters_attributes.bms_Status_b = true;
 	}	
 	
 	return retTempStatus;
@@ -60,6 +61,7 @@ bool checkSOC_OutOfRange(float soc)
 	if(soc < 20 || soc > 80) {
 		printf("State of Charge out of range!\n");
 		retSOC_Status = true;
+		BMS_parameters_attributes.bms_Status_b = true;
 	}	
 	return retSOC_Status;
 }
@@ -70,6 +72,7 @@ bool checkChargeRate_OutOfRange(float chargeRate)
 	if(chargeRate > 0.8) {
 		printf("Charge Rate out of range!\n");
 		retCanregeRate_Status = true;
+		BMS_parameters_attributes.bms_Status_b = true;
 	}		
 	return retCanregeRate_Status;
 }
@@ -90,7 +93,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 	BMS_parameters_attributes.soc_Status_b = checkSOC_OutOfRange(soc);
 	BMS_parameters_attributes.chargeRate_Status_b = checkChargeRate_OutOfRange(chargeRate);
 	
-	BMS_parameters_attributes.bms_Status_b = ((true == BMS_parameters_attributes.temp_Status_b) || (true == BMS_parameters_attributes.soc_Status_b) || (true == BMS_parameters_attributes.chargeRate_Status_b))?1:0;
+	//BMS_parameters_attributes.bms_Status_b = ((true == BMS_parameters_attributes.temp_Status_b) || (true == BMS_parameters_attributes.soc_Status_b) || (true == BMS_parameters_attributes.chargeRate_Status_b))?1:0;
 	
 	if( true == BMS_parameters_attributes.bms_Status_b) 
 	{
