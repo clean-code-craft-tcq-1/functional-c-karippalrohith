@@ -31,6 +31,10 @@ typedef struct {
 bool checkTemperature_OutOfRange(float temperature);
 bool checkSOC_OutOfRange(float soc);
 bool checkChargeRate_OutOfRange(float chargeRate);
+void setBMSStatus(bool bms_Status);
+void printParameterStatus(char param[]);
 int batteryIsOk(float temperature, float soc, float chargeRate);
 
 #endif /*BMS_MAIN_H_*/
+
+
