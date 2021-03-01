@@ -19,7 +19,7 @@
 #include <assert.h>
 
 /*------ module includes --------*/
-#include "Checker.h"
+#include "checker.h"
 
 /*=============================================================================
  =======               DEFINES & MACROS FOR GENERAL PURPOSE              =======
