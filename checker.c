@@ -35,6 +35,7 @@
 BMS_parameters_s BMS_parameters_attributes = {
 		false,
 		false,
+		false,
 		false
 };
 /*=============================================================================
@@ -89,7 +90,9 @@ int batteryIsOk(float temperature, float soc, float chargeRate) {
 	BMS_parameters_attributes.soc_Status_b = checkSOC_OutOfRange(soc);
 	BMS_parameters_attributes.chargeRate_Status_b = checkChargeRate_OutOfRange(chargeRate);
 	
-	if((true == BMS_parameters_attributes.temp_Status_b) || (true == BMS_parameters_attributes.soc_Status_b) || (true == BMS_parameters_attributes.chargeRate_Status_b)) 
+	BMS_parameters_attributes.bms_Status_b = ((true == BMS_parameters_attributes.temp_Status_b) || (true == BMS_parameters_attributes.soc_Status_b) || (true == BMS_parameters_attributes.chargeRate_Status_b))?1:0;
+	
+	if( true == BMS_parameters_attributes.bms_Status_b) 
 	{
 		return 0;
 	}
