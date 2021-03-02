@@ -37,9 +37,11 @@ typedef struct {
     bool bms_Status_b;
 } BMS_parameters_s;
 
-void setBMSStatus(bool bms_Status);
-void printParameterStatus_As_OutOfRange(char param[]);
-bool checkAttribute_OutOfRange(float bms_attribute, float attribute_Min_Value, float attribute_Max_Value, char param[]);
-int batteryIsOk(float temperature, float soc, float chargeRate);
+void BMS_setBMSStatus(bool bms_Status);
+void BMS_printParameterStatus_As_OutOfRange(char param[]);
+bool BMS_checkAttribute_OutOfRange(float bms_attribute, float attribute_Min_Value, float attribute_Max_Value, char param[]);
+int BMS_batteryIsOk(float temperature, float soc, float chargeRate);
 
 #endif /*BMS_MAIN_H_*/
+
+
