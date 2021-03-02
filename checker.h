@@ -24,7 +24,7 @@
 #define BMS_ATTRIBUTE_SOC_MAX_VALUE            			80u
 
 #define BMS_ATTRIBUTE_CHARGE_RATE_MIN_VALUE            	0u
-#define BMS_ATTRIBUTE_CHARGE_RATE_MAX_VALUE            	0.8u
+#define BMS_ATTRIBUTE_CHARGE_RATE_MAX_VALUE            	0.8
 
 typedef enum {	false, 
 				true
