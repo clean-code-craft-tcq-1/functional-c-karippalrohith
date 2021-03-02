@@ -62,7 +62,7 @@ void printParameterStatus_As_OutOfRange(char param[])
 
 void setBMSStatus(bool bms_Status)
 {
-	BMS_parameters_attributes.bms_Status_b = true;
+	BMS_parameters_attributes.bms_Status_b = bms_Status;
 }
 /*---------------------------------------------------------------------------*/
 /*     FUNCTION: batteryIsOk
