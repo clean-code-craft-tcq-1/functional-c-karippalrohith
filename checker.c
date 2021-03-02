@@ -137,6 +137,9 @@ int BMS_batteryIsOk(float temperature, float soc, float chargeRate) {
  *
  *//*------------------------------------------------------------------------*/
 int main() {
-  assert(BMS_batteryIsOk(25, 70, 0.7));
-  assert(!BMS_batteryIsOk(50, 85, 0));
+  assert(BMS_batteryIsOk(25, 70, 0.7));			/*All values in range*/
+  assert(!BMS_batteryIsOk(50, 85, 0));			/*All values out of range*/
+  assert(!BMS_batteryIsOk(100, 70, 0.7));		/*Temp out of range*/
+  assert(!BMS_batteryIsOk(25, 100, 0.7));		/*SOC out of range*/
+  assert(!BMS_batteryIsOk(25, 70, 1.5));			/*Charge rate out of range*/
 }
